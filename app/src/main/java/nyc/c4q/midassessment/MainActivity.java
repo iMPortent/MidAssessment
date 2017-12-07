@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
         myTask.execute(90000);
 
         toLoginPage = new Intent(this, LoginPage.class);
+        startActivity(toLoginPage);
     }
 
     private class MySyncTask extends AsyncTask<Integer, Integer, Integer> {
