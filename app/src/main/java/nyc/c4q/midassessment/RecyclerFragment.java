@@ -24,7 +24,7 @@ public class RecyclerFragment extends Fragment {
 
     RecyclerView recycler;
     ArrayList<Integer> numberList;
-    String bundleKey = "selected";
+    public String bundleKey = "selected";
 
 
     @Nullable
@@ -52,14 +52,18 @@ public class RecyclerFragment extends Fragment {
     }
 
     public void takeToMultiply(View view){
+        MultiplierFragment multiplier = new MultiplierFragment();
         Bundle bundle = new Bundle();
 
 
         bundle.putString(bundleKey,((TextView) view).getText().toString());
+        multiplier.setArguments(bundle);
+
+
         FragmentManager manager = getFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
 
-        transaction.replace(R.id.frag_holder, new RecyclerFragment());
+        transaction.replace(R.id.frag_holder, multiplier);
         transaction.commit();
     }
 }
